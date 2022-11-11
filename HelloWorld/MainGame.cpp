@@ -2,11 +2,11 @@
 #define PLAY_USING_GAMEOBJECT_MANAGER
 #include "Play.h"
 
-int DISPLAY_WIDTH = 1280;
+int DISPLAY_WIDTH = 1280;		//Setting the dimension for the screen size
 int DISPLAY_HEIGHT = 720;
 int DISPLAY_SCALE = 1;
 
-enum Agent8State
+enum Agent8State				//Creating a GameState for agent_8
 {
 	STATE_APPEAR = 0,
 	STATE_HALT,
@@ -14,7 +14,7 @@ enum Agent8State
 	STATE_DEAD,
 };
 
-struct GameState
+struct GameState				//Creating the state for the game
 {
 	int score = 0;
 	Agent8State agentState = STATE_APPEAR;
@@ -22,9 +22,9 @@ struct GameState
 
 GameState gameState;
 
-enum GameObjectType
+enum GameObjectType		//Setting all of the game object types starting at 0
 {
-	TYPE_NULL = -1,
+	TYPE_NULL = -1,		//This represents all uninitialised game objects to reduce erorrs
 	TYPE_AGENT8,
 	TYPE_FAN,
 	TYPE_TOOL,
