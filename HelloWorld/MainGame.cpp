@@ -34,6 +34,7 @@ enum GameObjectType		//Setting all of the game object types starting at 0
 	TYPE_DESTROYED,
 };
 
+//Forward declaration of functions
 void HandlePlayerControls();
 void UpdateFan();
 void UpdateTools();
@@ -45,12 +46,12 @@ void UpdateAgent8();
 // The entry point for a Windows program
 void MainGameEntry(PLAY_IGNORE_COMMAND_LINE)
 {
-	Play::CreateManager(DISPLAY_WIDTH, DISPLAY_HEIGHT, DISPLAY_SCALE);
+	Play::CreateManager(DISPLAY_WIDTH, DISPLAY_HEIGHT, DISPLAY_SCALE);	//Drawing the screen size
 	Play::CentreAllSpriteOrigins();
 	Play::LoadBackground("Data\\Backgrounds\\background.png");
 	Play::StartAudioLoop("music");
-	Play::CreateGameObject(TYPE_AGENT8, { 115, 0 }, 50, "agent8");
-	int id_fan = Play::CreateGameObject(TYPE_FAN, { 1140, 217 }, 0, "fan");
+	Play::CreateGameObject(TYPE_AGENT8, { 115, 0 }, 50, "agent8");			//Creating the player
+	int id_fan = Play::CreateGameObject(TYPE_FAN, { 1140, 217 }, 0, "fan");	//Creating the enemy
 	Play::GetGameObject(id_fan).velocity = { 0, 3 };
 	Play::GetGameObject(id_fan).animSpeed = 1.0f;
 }
